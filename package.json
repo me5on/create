@@ -1,0 +1,53 @@
+{
+  "name": "@me5on/create",
+  "version": "0.0.0+5",
+  "description": "Helper for creating initial files",
+  "type": "module",
+  "main": "./src/create$.fn.js",
+  "bin": {
+    "create": "./src/index.js"
+  },
+  "repository": "https://github.com/me5on/create",
+  "author": {
+    "name": "azder",
+    "email": "azhder@gmail.com",
+    "url": ""
+  },
+  "license": "MIT",
+  "keywords": [
+    "me5on",
+    "create"
+  ],
+  "scripts": {
+    "esl:once": "eslint -c index.js --ignore-path .gitignore ./",
+    "esl:wtch": "nodemon --exec eslint -c index.js --ignore-path .gitignore ./",
+    "esl:ofix": "eslint -c index.js --ignore-path .gitignore --fix ./",
+    "esl:wfix": "nodemon --exec eslint -c index.js --ignore-path .gitignore --fix ./",
+    "jst:ocvr": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
+    "jst:wcvr": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest --watch-all --coverage",
+    "jst:once": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "jst:wtch": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "smp:once": "eslint -c index.js ./doc/samples",
+    "smp:wtch": "nodemon --exec npm run smp:once",
+    "srv:covr": "npx http-server ./coverage/lcov-report/ -c-1 -p 0 ",
+    "prepare": "husky install",
+    "test": "npm run jst:once",
+    "start": "npm run jst:wtch"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "devDependencies": {
+    "@jest/globals": "^27.0.6",
+    "@me5on/dv": "^0.0.2",
+    "@sloy/eslint-config-import": "^0.0.1",
+    "@sloy/eslint-config-recommended": "^0.1.1",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "http-server": "^13.0.1",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6"
+  },
+  "dependencies": {}
+}
