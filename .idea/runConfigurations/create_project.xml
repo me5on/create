@@ -1,5 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="create-project" type="NodeJSConfigurationType" application-parameters="project" path-to-node="/usr/local/bin/zx" path-to-js-file="$PROJECT_DIR$/src/index.js" working-dir="$PROJECT_DIR$/tmp">
-    <method v="2" />
-  </configuration>
-</component>
