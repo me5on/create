@@ -20,13 +20,15 @@ const project$ = (
     async ({assets, template}) => {
 
         if (await exists$(PKG_FILE)) {
-            return void bail$('package.json already exists');
+            bail$('package.json already exists');
+            return;
         }
 
         // eslint-disable-next-line no-shadow
         const name = answerOf(await question$('How to name it: '));
         if (!name) {
-            return void bail$('No name provided');
+            bail$('No name provided');
+            return;
         }
 
         await cp$(join(assets, template, './'), './');
@@ -46,8 +48,6 @@ const project$ = (
         for (const cmd of cmds) {
             await run$(cmd);
         }
-
-        return void (1);
     }
 );
 

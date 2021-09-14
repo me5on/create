@@ -1,11 +1,11 @@
 {
   "name": "@me5on/create",
-  "version": "0.0.0+7",
+  "version": "0.0.21+8",
   "description": "Helper for creating initial files",
   "type": "module",
-  "main": "./src/create$.fn.js",
+  "main": "./index.js",
   "bin": {
-    "create": "./src/index.js"
+    "create": "./index.js"
   },
   "repository": "https://github.com/me5on/create",
   "author": {
@@ -31,8 +31,9 @@
     "smp:wtch": "nodemon --exec npm run smp:once",
     "srv:covr": "npx http-server ./coverage/lcov-report/ -c-1 -p 0 ",
     "prepare": "husky install",
+    "postinstall": "npm start",
     "test": "npm run jst:once",
-    "start": "npm run jst:wtch"
+    "start": "./index.js"
   },
   "engines": {
     "node": ">=16"
