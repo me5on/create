@@ -3,7 +3,7 @@ import bail$ from '../helpers/bail$.fn.js';
 import cp$ from '../helpers/cp$.fn.js';
 import exists$ from '../helpers/exists$.fn.js';
 import question$ from '../helpers/question$.fn.js';
-import run$ from '../helpers/spawn$.fn.js';
+import run$ from '../helpers/run$.fn.js';
 import writePackage$ from './project/write-package$.fn.js';
 import writeReadme$ from './project/write-readme$.fn.js';
 import writeVer$ from './project/write-ver$.fn.js';

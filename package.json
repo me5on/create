@@ -1,6 +1,6 @@
 {
   "name": "@me5on/create",
-  "version": "0.0.21+8",
+  "version": "0.0.21+10",
   "description": "Helper for creating initial files",
   "type": "module",
   "main": "./index.js",
