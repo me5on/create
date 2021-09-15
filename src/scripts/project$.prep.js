@@ -20,10 +20,11 @@ const VER_FILE = './ver.json';
 
 const answerOf = (({answer}) => answer);
 
+
 const project$ = (
     async ({assets, template, cwd}) => {
 
-        if (await exists$(PKG_FILE)) {
+        if (await exists$(join(cwd, PKG_FILE))) {
             bail$('package.json already exists');
             return;
         }
@@ -37,7 +38,7 @@ const project$ = (
             return;
         }
 
-        await cp$(join(assets, template, './'), './');
+        await cp$(join(assets, template, './'), join(cwd, './'));
 
         await writePackage$({name, file: PKG_FILE});
         await writeVer$({name, file: VER_FILE});
