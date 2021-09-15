@@ -40,6 +40,11 @@ const project$ = (
 
         await cp$(join(assets, template, './'), join(cwd, './'));
 
+        // workaround @see https://github.com/npm/npm/issues/3763
+        await cp$(join(cwd, './_.gitignore'), join(cwd, './.gitignore'));
+        await cp$(join(cwd, './.husky/_.gitignore'), join(cwd, './.husky/.gitignore'));
+
+
         await writePackage$({name, file: PKG_FILE});
         await writeVer$({name, file: VER_FILE});
         await writeReadme$({name, file: RDM_FILE});

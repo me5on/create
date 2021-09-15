@@ -22,7 +22,12 @@ const create$ = (async () => {
 
     try {
 
-        const choices = await readdir(assets);
+        const choices = (
+            (await readdir(assets, {withFileTypes: true}))
+                .filter($ => $.isDirectory())
+                .map($ => $.name)
+        );
+
         1 < choices.length && choices$('Available templates', choices);
 
         const {answer: template} = (
