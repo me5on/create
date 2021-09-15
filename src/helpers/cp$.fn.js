@@ -1,10 +1,9 @@
 import {copyFile as copy$, mkdir as md$, readdir as dir$, stat as stat$} from 'node:fs/promises';
 import {join} from 'node:path';
-import CRAYON from './crayon.const.js';
 import exists$ from './exists$.fn.js';
 
 
-const {dim: FG, reset: RST} = CRAYON;
+// const {dim: FG, reset: RST} = CRAYON;
 
 
 const cp$ = async (src, dst) => {
@@ -21,7 +20,7 @@ const cp$ = async (src, dst) => {
             const to = join(dst, item);
 
             // eslint-disable-next-line no-console
-            console.log(`${FG}copying ${from} -> ${to} ...${RST}`);
+            // console.log(`${FG}copying ${from} -> ${to} ...${RST}`);
 
             await cp$(from, to);
         }

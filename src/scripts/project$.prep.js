@@ -1,3 +1,4 @@
+import {rename as rename$} from 'node:fs/promises';
 import {basename, join} from 'node:path';
 import bail$ from '../helpers/bail$.fn.js';
 import cp$ from '../helpers/cp$.fn.js';
@@ -40,9 +41,9 @@ const project$ = (
 
         await cp$(join(assets, template, './'), join(cwd, './'));
 
-        // workaround @see https://github.com/npm/npm/issues/3763
-        await cp$(join(cwd, './_.gitignore'), join(cwd, './.gitignore'));
-        await cp$(join(cwd, './.husky/_.gitignore'), join(cwd, './.husky/.gitignore'));
+        // workaround, @see https://github.com/npm/npm/issues/3763
+        await rename$(join(cwd, './_.gitignore'), join(cwd, './.gitignore'));
+        await rename$(join(cwd, './.husky/_.gitignore'), join(cwd, './.husky/.gitignore'));
 
 
         await writePackage$({name, file: PKG_FILE});
