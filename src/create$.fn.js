@@ -23,9 +23,13 @@ const create$ = (async () => {
     try {
 
         const choices = await readdir(assets);
-        choices$('Available templates', choices);
+        1 < choices.length && choices$('Available templates', choices);
 
-        const {answer: template} = await question$({message: 'What to create: ', choices});
+        const {answer: template} = (
+            1 < choices.length
+                ? await question$({message: 'What to create: ', choices})
+                : {answer: choices[0]}
+        );
 
         if (!template) {
             bail$('Nothing to create');

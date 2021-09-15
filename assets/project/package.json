@@ -24,6 +24,12 @@
     "smp:once": "eslint -c index.js ./doc/samples",
     "smp:wtch": "nodemon --exec npm run smp:once",
     "srv:covr": "npx http-server ./coverage/lcov-report/ -c-1 -p 0 ",
+    "ncu:chck": "npx npm-check-updates",
+    "ncu:cdoc": "npx npm-check-updates --doctor",
+    "ncu:runu": "npx npm-check-updates -u",
+    "ncu:rund": "npx npm-check-updates -u --doctor",
+    "ncu:runm": "npx npm-check-updates -u --target minor",
+    "ncu:runp": "npx npm-check-updates -u --target patch",
     "prepare": "husky install",
     "test": "npm run jst:once",
     "start": "npm run jst:wtch"
@@ -38,7 +44,9 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "http-server": "^13.0.1",
     "husky": "^7.0.1",
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "npm-check-updates": "^11.8.5"
   },
   "dependencies": {
   }
