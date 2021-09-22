@@ -1,6 +1,6 @@
 {
   "name": "@me5on/create",
-  "version": "0.0.30+20",
+  "version": "0.0.31+23",
   "description": "Helper for creating initial files",
   "type": "module",
   "main": "./index.js",
@@ -19,10 +19,10 @@
     "create"
   ],
   "scripts": {
-    "esl:once": "eslint -c index.js --ignore-path .gitignore ./",
-    "esl:wtch": "nodemon --exec eslint -c index.js --ignore-path .gitignore ./",
-    "esl:ofix": "eslint -c index.js --ignore-path .gitignore --fix ./",
-    "esl:wfix": "nodemon --exec eslint -c index.js --ignore-path .gitignore --fix ./",
+    "esl:once": "eslint --ignore-path .gitignore ./",
+    "esl:wtch": "nodemon --exec eslint --ignore-path .gitignore ./",
+    "esl:ofix": "eslint --ignore-path .gitignore --fix ./",
+    "esl:wfix": "nodemon --exec eslint --ignore-path .gitignore --fix ./",
     "jst:ocvr": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
     "jst:wcvr": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest --watch-all --coverage",
     "jst:once": "NODE_OPTIONS=--experimental-vm-modules jest",

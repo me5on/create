@@ -3,7 +3,8 @@
 # shellcheck source=./_/husky.sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx eslint --fix ./
+npm run esl:ofix
+npm test
 npx dv bump
 
 npm i --package-lock-only
