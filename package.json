@@ -1,6 +1,6 @@
 {
   "name": "@me5on/create",
-  "version": "0.0.33+26",
+  "version": "0.0.33+27",
   "description": "Helper for creating initial files",
   "type": "module",
   "main": "./index.js",
@@ -37,7 +37,7 @@
     "ncu:runm": "npx npm-check-updates -u --target minor",
     "ncu:runp": "npx npm-check-updates -u --target patch",
     "prepare": "husky install",
-    "test": "exit 0",
+    "test": "npm run jst:once",
     "start": "./index.js"
   },
   "engines": {

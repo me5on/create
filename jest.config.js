@@ -1,5 +1,7 @@
 export default ({
 
+    passWithNoTests: true,
+
     testMatch: [
         '<rootDir>/(src|tst)/**/*.(spec|test).js',
     ],
