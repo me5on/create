@@ -33,7 +33,7 @@ const project$ = (
         const deFault = basename(cwd);
 
         // eslint-disable-next-line no-shadow
-        const name = answerOf(await question$(`How to name it: ${FG}(${deFault})${RST}`)) || deFault;
+        const name = answerOf(await question$(`How to name it: ${FG}(${deFault})${RST} `)) || deFault;
         if (!name) {
             bail$('No name provided');
             return;
