@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import {expect} from '@jest/globals';
 
 
@@ -10,6 +12,25 @@ const pos = (
 // message shown when negative scenario fails
 const neg = (
     message => ({pass: true, message: () => message})
+);
+
+
+const message = (
+
+    ({that, test, fn, args, actual, result}) => {
+        
+        const act = that.utils.printExpected(actual);
+        const res = that.utils.printReceived(result);
+        const arg = that.utils.printReceived(args);
+
+        return (
+            test
+                ? neg(`Expected ${fn} to not map ${arg} -> ${res}, instead got ${act}`)
+                : pos(`Expected ${fn} to map ${arg} -> ${res}, instead got ${act}`)
+
+        );
+    }
+
 );
 
 
@@ -35,20 +56,23 @@ expect.extend({
     },
 
 
-    toMap(fn, result, ...args) {
+    toMapExact(fn, result, ...args) {
 
+        const that = this;
         const actual = fn(...args);
-        const act = this.utils.printExpected(actual);
-        const res = this.utils.printReceived(result);
-        const arg = this.utils.printReceived(args);
+        const test = (actual === result);
+
+        return message({that, test, fn, args, actual, result});
+    },
 
 
-        return (
-            result === actual
-                ? neg(`Expected ${fn} to not map ${arg} to ${res}, instead got ${act}`)
-                : pos(`Expected ${fn} to map ${arg} to ${res}, instead got ${act}`)
+    toMapEquals(fn, result, ...args) {
 
-        );
+        const that = this;
+        const actual = fn(...args);
+        const test = this.equals(result, actual);
+
+        return message({that, test, fn, args, actual, result});
     },
 
 
