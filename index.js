@@ -6,12 +6,16 @@ import bail$ from './src/helpers/bail$.fn.js';
 import CRAYON from './src/helpers/crayon.const.js';
 
 
-const {bg: {black: BG}, fg: {white: FG, blue: VER}, reset: RST} = CRAYON;
+const {bg: {black: BG}, fg: {white: FG, blue: VER, red: ERR}, reset: RST} = CRAYON;
 
 
-const {version} = createRequire(import.meta.url)('./data.json') ?? {};
+const {version} = createRequire(import.meta.url)('./package.json') ?? {};
 // eslint-disable-next-line no-console
-console.log(`${FG}${BG}version: ${VER}${version}${RST}`);
+console.log(
+    version
+        ? `${FG}${BG}version: ${VER}${version}${RST}`
+        : `${FG}${BG}version: ${ERR}unknown${RST}`,
+);
 
 
 create$().catch(bail$);
