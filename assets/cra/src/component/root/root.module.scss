@@ -1,0 +1,63 @@
+@use '~@me5on/albega/scss/util' as U;
+@use '~@me5on/albega/scss/mod';
+
+@use 'src/style/shared';
+
+
+.Root {
+    text-align: center;
+
+    code {
+        font-family:      var(--font--mono);
+        background-color: var(--c-gray-al--a-md);
+        color:            var(--c-gray-be--l-lg);
+        padding:          var(--sz--px-sm);
+        display:          inline-block;
+    }
+
+    &__logo {
+        @include U.square(calc(var(--sz--rem-lg)));
+        @extend .albega-click--none;
+        pointer-events: none;
+    }
+
+    &__message {
+        max-width:     var(--sz--pp-lg);
+        overflow-wrap: anywhere;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        &__logo {
+            animation: logo-spin infinite 20s linear;
+        }
+    }
+
+    &__header {
+        background-color: var(--c-norm-al);
+        min-height:       100vh;
+        display:          flex;
+        flex-direction:   column;
+        align-items:      center;
+        justify-content:  center;
+        font-size:        calc(var(--sz--px-md) + 2vmin);
+        color:            white;
+    }
+
+    &__link {
+        color: var(--c-main-al);
+
+        &:hover {
+            color: var(--c-main-al--l-xl);
+        }
+    }
+
+    @keyframes logo-spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+}

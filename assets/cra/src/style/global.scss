@@ -1,0 +1,22 @@
+@use '~@me5on/albega/scss/theme' with (
+    $main--al: #61dafb,
+);
+@use '~@me5on/albega/scss/root';
+@use '~@me5on/albega/scss/mod';
+
+
+::selection {
+    color:            var(--c-acnt-be);
+    background-color: var(--c-acnt-al--a-sm);
+}
+
+* {
+    @extend .albega-box--reset;
+    border-radius: var(--br--px-sm);
+}
+
+body {
+    font-family:             var(--font--norm);
+    -webkit-font-smoothing:  antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
