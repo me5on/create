@@ -12,7 +12,7 @@ const choices$ = (
         const joined = choices.join(', ');
 
         // eslint-disable-next-line no-console
-        console.log(dye`{:wrn::${message}: ${joined}`);
+        console.log(dye`{:wrn::${message}: ${joined}:}`);
     }
 
 );
