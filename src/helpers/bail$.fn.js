@@ -1,14 +1,11 @@
-import CRAYON from './crayon.const.js';
-
-
-const {bg: {black: BG}, fg: {red: FG}, reset: RST} = CRAYON;
+import dye from './dye.fn.js';
 
 
 const bail$ = (
 
     message => {
         // eslint-disable-next-line no-console
-        console.log(`${FG}${BG}${message}!${RST}`);
+        console.log(dye`{:err::${message}!:}`);
         process.exit(1);
     }
 

@@ -2,16 +2,13 @@ import {rename as rename$} from 'node:fs/promises';
 import {basename, join} from 'node:path';
 import bail$ from '../helpers/bail$.fn.js';
 import cp$ from '../helpers/cp$.fn.js';
-import CRAYON from '../helpers/crayon.const.js';
+import dye from '../helpers/dye.fn.js';
 import exists$ from '../helpers/exists$.fn.js';
 import question$ from '../helpers/question$.fn.js';
 import run$ from '../helpers/run$.fn.js';
 import writePackage$ from './project/write-package$.fn.js';
 import writeReadme$ from './project/write-readme$.fn.js';
 import writeVer$ from './project/write-ver$.fn.js';
-
-
-const {dim: FG, reset: RST} = CRAYON;
 
 
 const PKG_FILE = './package.json';
@@ -33,7 +30,7 @@ const project$ = (
         const deFault = basename(cwd);
 
         // eslint-disable-next-line no-shadow
-        const name = answerOf(await question$(`How to name it: ${FG}(${deFault})${RST} `)) || deFault;
+        const name = answerOf(await question$(dye`How to name it: {:dim::(${deFault}):} `)) || deFault;
         if (!name) {
             bail$('No name provided');
             return;
@@ -52,7 +49,7 @@ const project$ = (
 
         const cmds = [
             'git init',
-            'npm i',
+            'npm i --legacy-peer-deps',
             'git add .',
             'git commit -m init',
             'git branch -M trunk',

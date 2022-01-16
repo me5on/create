@@ -4,11 +4,12 @@ import {fileURLToPath} from 'node:url';
 import bail$ from './helpers/bail$.fn.js';
 import choices$ from './helpers/choices$.fn.js';
 import question$ from './helpers/question$.fn.js';
+import cra$ from './scripts/cra$.prep.js';
 import empty$ from './scripts/empty$.prep.js';
 import project$ from './scripts/project$.prep.js';
 
 
-const PREP = Object.freeze({empty$, project$});
+const PREP = Object.freeze({empty$, project$, cra$});
 
 
 const BASE = resolve(dirname(fileURLToPath(import.meta.url)), '../');

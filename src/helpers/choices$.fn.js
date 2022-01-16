@@ -1,7 +1,4 @@
-import CRAYON from './crayon.const.js';
-
-
-const {bg: {black: BG}, fg: {yellow: FG}, reset: RST} = CRAYON;
+import dye from './dye.fn.js';
 
 
 const choices$ = (
@@ -15,7 +12,7 @@ const choices$ = (
         const joined = choices.join(', ');
 
         // eslint-disable-next-line no-console
-        console.log(`${FG}${BG}${message}: ${joined}${RST}`);
+        console.log(dye`{:wrn::${message}: ${joined}`);
     }
 
 );
